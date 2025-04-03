@@ -1,0 +1,26 @@
+spring:
+ cloud:
+   gateway:
+     routes:
+       - id: EmailCheckExists
+         uri: lb://EMAIL-SERVICE
+         predicates:
+           - Path=/check/**
+         
+       - id: licenseapp
+         uri: lb://LICENSE-SERVICE
+         predicates:
+           - Path=/api/license/**
+
+       - id: login1
+         uri: lb://LOGIN-SERVICE
+         predicates:
+           - Path=/auth/**
+
+ application:
+   name: EMAIL-GATEWAY
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
