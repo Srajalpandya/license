@@ -1,0 +1,15 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: Eurekaserver1
+
+
+eureka:
+  client:
+    registerWithEureka: false   #we dont want to register eureka server(itself) 
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0  #wait time
+  instance:
+    hostname: localhost
