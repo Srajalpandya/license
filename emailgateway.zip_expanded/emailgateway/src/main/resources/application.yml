@@ -6,11 +6,16 @@ spring:
          uri: lb://EMAIL-SERVICE
          predicates:
            - Path=/check/**
-         
+         filters:
+           - AuthenticationFilter
+
+
        - id: licenseapp
          uri: lb://LICENSE-SERVICE
          predicates:
            - Path=/api/license/**
+         filters:
+           - AuthenticationFilter
 
        - id: login1
          uri: lb://LOGIN-SERVICE
